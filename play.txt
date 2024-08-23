@@ -1,0 +1,17 @@
+`Hello ${user.name},
+<br/>
+We received a request to reset your password on our website ClothStore.com.
+<br/>
+To proceed with resetting your password, please click the link below:
+<br/>
+<a href='${
+          process.env.NEXT_PUBLIC_HOST
+        }/navpages/forgot?token=${"token"}'>Reset My Password</a>
+<br/>
+For your security, this link will expire in 24 hours. If you didn't request a password reset, please ignore this email or contact our support team.
+<br/>
+Security Tip: Do not share this link with anyone.
+<br/>
+Thank you,<br/>
+ClothStore Support Team<br/>
+sender@example.com`<br/>
