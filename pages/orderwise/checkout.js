@@ -33,7 +33,7 @@ const Checkout = ({ isLoggedin }) => {
         token:localStorage.getItem("token")
       }
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/user/getUser`,
+        `/api/user/getUser`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const Checkout = ({ isLoggedin }) => {
       setaddress(user.address)
       setphone(user.phone)
       setpincode(user.pincode)
-      const resp = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+      const resp = await fetch(`/api/pincode`);
         const pincodes = await resp.json();
         if (Object.keys(pincodes).includes(user.pincode)) {
           setcity(pincodes[user.pincode][0]);
@@ -79,7 +79,7 @@ const Checkout = ({ isLoggedin }) => {
         setpincode(e.target.value); 
       }
       if (e.target.value.length == 6) {
-        const resp = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+        const resp = await fetch(`/api/pincode`);
         const pincodes = await resp.json();
         if (Object.keys(pincodes).includes(e.target.value)) {
           setcity(pincodes[e.target.value][0]);
@@ -119,7 +119,7 @@ const Checkout = ({ isLoggedin }) => {
       receiptId: `${Date.now().toString()}&${Math.random()}`,
     };
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_HOST}/api/payment/getOrderId`,
+      `/api/payment/getOrderId`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +140,7 @@ const Checkout = ({ isLoggedin }) => {
         order_id: orderObj.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: async (response) => {
           const res = await fetch(
-            `${process.env.NEXT_PUBLIC_HOST}/api/payment/validateSuccess`,
+            `/api/payment/validateSuccess`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -197,7 +197,7 @@ const Checkout = ({ isLoggedin }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+      const res = await fetch(`/api/pincode`);
       const pincodes = await res.json();
       if (Object.keys(pincodes).includes(pincode)) {
         setisServiceable(true)

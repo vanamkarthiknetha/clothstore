@@ -13,7 +13,7 @@ const Signup = ({isLoggedin}) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const user = { name, email, password };
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user/signup`, {
+    const res = await fetch(`/api/user/signup`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
