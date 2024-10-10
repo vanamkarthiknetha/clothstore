@@ -11,7 +11,7 @@ const Signin = ({isLoggedin,setisLoggedin}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { email, password };
-    const res = await fetch(`/api/user/signin`, {
+    const res = await fetch("http://localhost:3000/api/user/signin", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {

@@ -43,7 +43,7 @@ const Forgot = ({ isLoggedin }) => {
     });
     const data = {email};
     const res = await fetch(
-      `/api/user/forgot`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/user/forgot`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const Forgot = ({ isLoggedin }) => {
     });
     const data = {passwordObj,token:router.query.token};
     const res = await fetch(
-      `/api/user/forgot`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/user/forgot`,
       {
         headers: {
           "Content-Type": "application/json",

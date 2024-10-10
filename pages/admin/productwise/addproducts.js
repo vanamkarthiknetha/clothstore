@@ -22,7 +22,7 @@ const Addproducts = () => {
   };
   const submit=async ()=>{
     const res = await fetch(
-      `/api/products/addproducts`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/products/addproducts`,
       {
         headers: {
          

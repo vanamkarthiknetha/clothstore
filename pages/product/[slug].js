@@ -17,7 +17,7 @@ const Slug = ({ variantsSorted, product, errorCode }) => {
 
   const checkService = async () => {
     if (pincode == null) return;
-    const res = await fetch(`/api/pincode`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     const pincodes = await res.json();
     if (Object.keys(pincodes).includes(pincode)) {
       setservice(true);

@@ -9,7 +9,7 @@ const Orders = ({ isLoggedin }) => {
   const router = useRouter();
   const fetchorders = async () => {
     const res = await fetch(
-      `/api/user/getOrders`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/user/getOrders`,
       {
         headers: {
           "Content-Type": "application/json",

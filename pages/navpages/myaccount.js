@@ -29,7 +29,7 @@ const MyAccount = ({ isLoggedin }) => {
         token: localStorage.getItem("token"),
       };
       const res = await fetch(
-        `/api/user/getUser`,
+        `${process.env.NEXT_PUBLIC_HOST}/api/user/getUser`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const MyAccount = ({ isLoggedin }) => {
       pincode,
     };
     const res = await fetch(
-      `/api/user/updateDetails`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/user/updateDetails`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +126,7 @@ const MyAccount = ({ isLoggedin }) => {
       currPassword,newPassword,confirmNewPassword
     };
     const res = await fetch(
-      `/api/user/changePassword`,
+      `${process.env.NEXT_PUBLIC_HOST}/api/user/changePassword`,
       {
         headers: {
           "Content-Type": "application/json",
