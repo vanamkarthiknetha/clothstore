@@ -334,7 +334,7 @@ const Slug = ({ variantsSorted, product, errorCode }) => {
                 )}
                 {!service && service != null && (
                   <div className="text-red-600">
-                    Sorry,cannot deliver to this pincode!
+                    Sorry,cannot deliver to this pincode! (available: 509321, 501505)
                   </div>
                 )}
                 {product.availableQuantity == 0 && (
