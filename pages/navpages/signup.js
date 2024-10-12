@@ -12,6 +12,17 @@ const Signup = ({isLoggedin}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    toast.info("Please Wait...", {
+      position: "top-center",
+      autoClose: 10000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+    });
     const user = { name, email, password };
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user/signup`, {
       method: "POST",
@@ -25,7 +36,7 @@ const Signup = ({isLoggedin}) => {
     setname("");
     setemail("");
     setpassword("");
-
+    toast.dismiss()
     if (data.success) {
       toast.success('Account has been created successfully !', {
         position: "top-center",

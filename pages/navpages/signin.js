@@ -10,6 +10,17 @@ const Signin = ({isLoggedin,setisLoggedin}) => {
   const [password, setpassword] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
+    toast.info("Please Wait...", {
+      position: "top-center",
+      autoClose: 10000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+    });
     const user = { email, password };
     const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/user/signin`, {
       method: "POST",
@@ -21,6 +32,7 @@ const Signin = ({isLoggedin,setisLoggedin}) => {
     const data = await res.json();
     setemail("");
     setpassword("");
+    toast.dismiss()
     if (data.success) {
       localStorage.setItem('token',data.token)
       localStorage.setItem('email',data.email)
